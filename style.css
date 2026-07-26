@@ -186,8 +186,8 @@ body {
 }
 
 .flag-circle {
-  width: 120px;
-  height: 120px;
+  width: min(120px, calc(var(--flag-item-width) - 10px));
+  height: min(120px, calc(var(--flag-item-width) - 10px));
   border-radius: 50%;
   border: 5px solid #ffffff;
   outline: 2px solid #ffffff;
@@ -627,6 +627,40 @@ input {
       0 12px 0 rgba(11, 49, 98, 0.95),
       0 20px 30px rgba(0, 0, 0, 0.5),
       0 0 26px rgba(80, 164, 255, 0.45);
+  }
+}
+
+@media (min-width: 821px) {
+  :root {
+    --flag-item-width: clamp(80px, 6.5vw, 120px);
+    --flag-gap: clamp(10px, 1.4vw, 28px);
+    --flag-row-width: calc((8 * var(--flag-item-width)) + (7 * var(--flag-gap)));
+  }
+
+  .welcome-strip,
+  .lang-grid,
+  .security-panel,
+  .jackpot-panel,
+  .review-panel {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .lang-grid,
+  .security-panel,
+  .jackpot-panel,
+  .review-panel {
+    width: min(var(--flag-row-width), 100%);
+    max-width: 100%;
+  }
+
+  .lang-grid {
+    margin-top: 14px;
+    margin-bottom: 56px;
+  }
+
+  .security-panel {
+    margin-top: -28px;
   }
 }
 
