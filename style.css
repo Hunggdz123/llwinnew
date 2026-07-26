@@ -637,13 +637,23 @@ input {
     --flag-row-width: calc((8 * var(--flag-item-width)) + (7 * var(--flag-gap)));
   }
 
-  .welcome-strip,
   .lang-grid,
   .security-panel,
   .jackpot-panel,
   .review-panel {
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .welcome-strip {
+    width: 100vw;
+    max-width: none;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+  }
+
+  .welcome-track span {
+    font-size: clamp(14px, 1.55vw, 28px);
   }
 
   .lang-grid,
