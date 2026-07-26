@@ -20,6 +20,7 @@ body {
   min-height: 100%;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: var(--text);
+  overflow-x: hidden;
 }
 
 .hero-banner {
@@ -133,6 +134,7 @@ body {
     0 20px 30px rgba(0, 0, 0, 0.5);
   transition: transform 0.16s ease, filter 0.16s ease, box-shadow 0.16s ease;
   animation: cta-pulse 1.8s ease-in-out infinite;
+  touch-action: manipulation;
 }
 
 .main-cta:hover {
@@ -180,6 +182,7 @@ body {
   gap: 2px;
   text-decoration: none;
   color: inherit;
+  touch-action: manipulation;
 }
 
 .flag-circle {
@@ -406,6 +409,7 @@ body {
   line-height: 1;
   cursor: pointer;
   transition: transform 0.14s ease, color 0.14s ease, text-shadow 0.14s ease;
+  touch-action: manipulation;
 }
 
 .review-star:hover {
@@ -463,6 +467,13 @@ body {
   justify-content: center;
   gap: 8px;
   cursor: pointer;
+  touch-action: manipulation;
+}
+
+a,
+button,
+input {
+  -webkit-tap-highlight-color: transparent;
 }
 
 .review-input-row button::before {
@@ -799,5 +810,173 @@ body {
 
   .lang-name {
     font-size: clamp(16px, 3.2vw, 22px);
+  }
+}
+
+@media (max-width: 560px) {
+  .hero-banner {
+    min-height: 100svh;
+    padding: 6px 8px 24px;
+  }
+
+  .hero-inner {
+    gap: 18px;
+  }
+
+  .hero-logo {
+    width: min(96vw, 430px);
+    margin-top: 12px;
+  }
+
+  .welcome-strip {
+    border-width: 1px;
+    padding: 8px 0;
+  }
+
+  .welcome-track {
+    animation-duration: 13s;
+  }
+
+  .welcome-track span {
+    font-size: clamp(13px, 3.7vw, 18px);
+  }
+
+  .main-cta {
+    width: 100%;
+    min-width: 0;
+    padding: 13px 14px;
+    font-size: clamp(16px, 5vw, 24px);
+    letter-spacing: 0.04em;
+    box-shadow:
+      inset 0 2px 0 rgba(255, 255, 255, 0.45),
+      inset 0 -4px 8px rgba(10, 45, 98, 0.52),
+      0 8px 0 rgba(11, 49, 98, 0.95),
+      0 12px 18px rgba(0, 0, 0, 0.42);
+  }
+
+  .lang-grid {
+    grid-template-columns: repeat(2, minmax(118px, 1fr));
+    gap: 14px 12px;
+    margin-top: 2px;
+  }
+
+  .flag-circle {
+    width: 74px;
+    height: 74px;
+    border-width: 3px;
+  }
+
+  .lang-greet,
+  .lang-name {
+    font-size: clamp(14px, 3.8vw, 18px);
+  }
+
+  .security-panel,
+  .jackpot-panel,
+  .review-panel {
+    border-radius: 14px;
+  }
+
+  .security-panel h2 {
+    font-size: clamp(16px, 4.8vw, 22px);
+    gap: 7px;
+  }
+
+  .security-mark {
+    height: 18px;
+  }
+
+  .security-panel p {
+    font-size: clamp(13px, 3.8vw, 16px);
+    line-height: 1.5;
+  }
+
+  .security-status {
+    font-size: clamp(12px, 3.4vw, 15px);
+    border-radius: 12px;
+  }
+
+  .jackpot-row {
+    grid-template-columns: 48px 1fr auto;
+    grid-template-areas:
+      "time user amount"
+      "game game game";
+    gap: 4px 8px;
+    padding: 10px 12px;
+  }
+
+  .jackpot-time {
+    grid-area: time;
+  }
+
+  .jackpot-game {
+    grid-area: game;
+    font-size: clamp(13px, 3.6vw, 17px);
+    line-height: 1.35;
+  }
+
+  .jackpot-user {
+    grid-area: user;
+    justify-self: start;
+  }
+
+  .jackpot-amount {
+    grid-area: amount;
+    font-size: clamp(14px, 4vw, 18px);
+  }
+
+  .review-panel {
+    padding: 14px 10px 14px;
+  }
+
+  .review-stars {
+    gap: 2px;
+  }
+
+  .review-star {
+    font-size: clamp(24px, 8.2vw, 36px);
+  }
+
+  .review-input-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .review-input-row input,
+  .review-input-row button {
+    width: 100%;
+    height: 44px;
+    font-size: clamp(14px, 4vw, 17px);
+  }
+
+  .review-list {
+    gap: 10px;
+  }
+
+  .review-card {
+    min-height: 0;
+    padding: 10px;
+  }
+
+  .review-name {
+    font-size: clamp(15px, 4.2vw, 19px);
+  }
+
+  .review-time {
+    font-size: clamp(12px, 3.3vw, 14px);
+  }
+
+  .review-text {
+    font-size: clamp(13px, 3.9vw, 16px);
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .main-cta:hover,
+  .review-card:hover,
+  .review-star:hover {
+    transform: none;
+    text-shadow: none;
+    box-shadow: none;
   }
 }
